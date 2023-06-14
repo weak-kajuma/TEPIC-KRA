@@ -1,5 +1,6 @@
 const mysql = require("mysql2");
 const { client } = require("..");
+const logger = require("../logger");
 require("dotenv").config();
 
 module.exports = {
@@ -50,6 +51,7 @@ module.exports = {
           if (dc < 0) dcX = dc;
           if (fc < 0) fcX = fc;
           if (pc < 0) pcX = pc;
+          logger("Add", dc, fc, pc, `to ${member} from ${msg.author}`);
           msg.reply("```" + `${dcX}DC \n${fcX}FC \n${pcX}PC` + "```");
         }
       );

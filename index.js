@@ -13,7 +13,6 @@ const client = new Client({
 module.exports = client;
 
 const prefix = process.env.PREFIX;
-const bot_ch = "990892081960587294";
 
 //Commands Read
 const commands = {};

@@ -1,5 +1,7 @@
 const promiseSQL = require("mysql2/promise");
 const mysql = require("mysql2");
+const logger = require("./logger");
+const { options } = require(".");
 require("dotenv").config();
 
 module.exports = async (msg) => {
@@ -78,5 +80,6 @@ module.exports = async (msg) => {
   } catch (e) {
     console.log(e);
   }
+  logger("Exchange", 0, dcTofc - fcTopc * 100, fcTopc, msg.author.toString());
   return [dcTofc - fcTopc * 100, fcTopc];
 };

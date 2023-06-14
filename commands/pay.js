@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const promiseMysql = require("mysql2/promise");
 const { client } = require("..");
+const logger = require("../logger");
 require("dotenv").config();
 
 async function getConnection() {
@@ -106,6 +107,7 @@ module.exports = {
         `update users set dc = dc + ${dc}, fc = fc + ${fc}, pc = pc + ${pc} where id = ${receiver.id}`,
         connectionErrorHandling
       );
+      logger("Pay", dc, fc, pc, `to ${receiver} from ${sender}`);
       return msg.reply(
         "```" + `-${dc}DC \n` + `-${fc}FC \n` + `-${pc}PC ` + "```"
       );
