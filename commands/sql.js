@@ -23,8 +23,8 @@ module.exports = {
     });
     try {
       connection.connect();
-      connection.query(s, function (err, res, fields) {
-        if (err) {
+      connection.query(s, function (e, res, fields) {
+        if (e) {
           msg.reply("SqlError:\n```" + e.toString() + "```");
           return;
         }

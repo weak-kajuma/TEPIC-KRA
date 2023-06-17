@@ -53,9 +53,9 @@ module.exports = {
     //定数
     const sender = msg.author; //せんだー
     const receiver = msg.mentions.members.first(); //れしーばー
-    const dc = args[1];
-    const fc = args[2];
-    const pc = args[3];
+    const dc = Math.floor(eval(args[1]));
+    const fc = Math.floor(eval(args[2]));
+    const pc = Math.floor(eval(args[3]));
     //正判定
     if (dc < 0 || fc < 0 || pc < 0)
       return msg.reply("```You have to pay valid amount```");

@@ -1,6 +1,7 @@
 const mysql = require("mysql2");
 const { client } = require("..");
 const logger = require("../logger");
+const eval = require("../eval")
 require("dotenv").config();
 
 module.exports = {
@@ -17,9 +18,9 @@ module.exports = {
     const args = msg.content.split(" ");
     if (args.length < 5) return msg.reply("```You have to send enough args```");
     args.shift();
-    const dc = Math.floor(args[1]);
-    const fc = Math.floor(args[2]);
-    const pc = Math.floor(args[3]);
+    const dc = Math.floor(eval(args[1]));
+    const fc = Math.floor(eval(args[2]));
+    const pc = Math.floor(eval(args[3]));
 
     const connection = mysql.createConnection({
       host: process.env.DB_HOST,
