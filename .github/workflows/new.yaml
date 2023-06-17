@@ -11,4 +11,5 @@ jobs:
           echo "$_ENV_FILE" | base64 -d > .env
           whoami
           docker build . -t docker.takatsuki.club/tepic-kra:latest
-          docker run -d docker.takatsuki.club/tepic-kra:latest
+          docker rm -f tepic-kra
+          docker run --name tepic-kra --restart=always -d docker.takatsuki.club/tepic-kra:latest
