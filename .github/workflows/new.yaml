@@ -1,12 +1,14 @@
 name: learn-github-actions
 on: [push]
+env: 
+  _ENV_FILE: ${{ secrets._ENV_FILE}}
 jobs:
   check-bats-version:
     runs-on: self-hosted
     steps:
-      - run: echo "this is pen"
       - uses: actions/checkout@v2
       - run: |
-          ls -al
-          cd .github/workflows/
-          ls -al
+          echo $_ENV_FILE | base64 > .env
+          whoami
+          docker build . -t docker.takatsuki.club/tepic-kra:latest
+          docker run -d docker.takatsuki.club/tepic-kra:latest
