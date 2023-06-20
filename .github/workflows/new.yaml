@@ -1,4 +1,4 @@
-name: learn-github-actions
+name: deploy-action
 on: [push]
 env: 
   _ENV_FILE: ${{ secrets._ENV_FILE}}
