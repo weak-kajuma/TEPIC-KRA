@@ -30,7 +30,7 @@ client.on("ready", async () => {
   console.log(`${client.user.tag} is ready!`);
 
   //Scheduler
-  cron.schedule("0 0 0 * * *", () => {
+  cron.schedule("0 0 * * * *", () => {
     const s = "update users set dc = 5";
     const connection = mysql.createConnection({
       host: process.env.DB_HOST,
